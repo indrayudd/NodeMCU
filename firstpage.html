@@ -6,14 +6,32 @@
 </head>
 <body>
 	<div class="container">
-	<div class="toggle-bn" onclick="this.classList.toggle('active')">
+	<div class="toggle-bn" id="switch" data-state="1" onclick="this.classList.toggle('active')">
 		<div class="ic" >
 			
 		</div>
 	</div>
 </div>
+
+<!--JQuery-->
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script>
+	$(document).ready(function(){
+
+		$("#switch").click(function(){
+			var current = $(this).data('state');
+			$.ajax({
+				url: 'switch.php?state'+current,
+				method: 'get'
+
+			});
+			
+
+		});
+	});
+</script>
+
 </body>
 
 
 </html>
-
