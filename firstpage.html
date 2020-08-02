@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div class="container">
-	<div class="toggle-bn" id="switch" data-state="1" onclick="this.classList.toggle('active')">
+	<div class="toggle-bn"  data-state="1" onclick="this.classList.toggle('active')">
 		<div class="ic" >
 			
 		</div>
@@ -18,7 +18,7 @@
 <script>
 	$(document).ready(function(){
 
-		$("#switch").click(function(){
+		$(".toggle-bn").click(function(){
 			var current = $(this).data('state');
 			$.ajax({
 				url: 'switch.php?state'+current,

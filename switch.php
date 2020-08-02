@@ -1,4 +1,4 @@
-<?
+<?php
 if(isset($_GET['state'])){
 
 $fp = fopen("data.txt", "w") or die("oops");
