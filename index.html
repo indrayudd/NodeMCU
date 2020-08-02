@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="toggle.css">
+	<title></title>
+</head>
+<body>
+	<div class="centre" id="switch" data-state="0">
+		<input type="checkbox" name="">
+
+	</div>
+	
+
+<!--JQuery-->
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script>
+
+	function current_state(){
+			btn = $("#switch");
+
+			$.ajax({
+				url: 'switch.php?current',
+				method: 'get',
+				success: function(data){
+
+					if(data==1){
+						btn.data('state', '0');
+					}else{
+						btn.data('state', '1');
+					}
+				}
+			});
+		}
+	$(document).ready(function(){
+
+		current_state();
+		setInterval(current_state, 1000);
+
+		$("#switch").click(function(){
+			var current = $(this).data('state');
+			$.ajax({
+				url: 'switch.php?state='+current,
+				method: 'get'
+
+			});
+			
+
+		});
+	});
+</script>
+
+</body>
+
+
+</html>
